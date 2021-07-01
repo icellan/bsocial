@@ -3,7 +3,7 @@ import {
   B_PROTOCOL_ADDRESS,
   BPP_PROTOCOL_ADDRESS,
   MAP_PROTOCOL_ADDRESS,
-} from './index';
+} from './constants';
 
 class BSocialPost {
   constructor(appName) {
@@ -52,7 +52,9 @@ class BSocialPost {
    * @param value string
    */
   addMapData(key, value) {
-    if (typeof key !== 'string' || typeof value !== 'string') throw new Error('Key and value should be a string');
+    if (typeof key !== 'string' || typeof value !== 'string') {
+      throw new Error('Key and value should be a string');
+    }
     this.extraMapData[key] = value;
   }
 
@@ -103,7 +105,7 @@ class BSocialPost {
   getOps(format = 'hex') {
     // check for texts or images content
     const hasContent = this.texts.length > 0 || this.images.length > 0;
-    const isRepost = this.type === 'repost' && this.txId
+    const isRepost = this.type === 'repost' && this.txId;
     if (!hasContent && !isRepost) {
       throw new Error('There is no content for this post');
     }
@@ -175,7 +177,9 @@ class BSocialPost {
       });
     }
 
-    return ops.map(op => (Buffer.isBuffer(op) ? op : Buffer.from(op)).toString(format));
+    return ops.map((op) => {
+      return (Buffer.isBuffer(op) ? op : Buffer.from(op)).toString(format);
+    });
   }
 }
 

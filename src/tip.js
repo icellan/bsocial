@@ -1,12 +1,12 @@
 import {
   MAP_PROTOCOL_ADDRESS,
-} from './index';
+} from './constants';
 
 class BSocialTip {
   constructor(appName) {
     if (!appName) throw new Error('App name needs to be set');
     this.appName = appName;
-    this.txId = ''
+    this.txId = '';
     this.amount = 0;
     this.currency = 'USD';
   }
@@ -16,7 +16,7 @@ class BSocialTip {
   }
 
   setAmount(amount, currency = 'USD') {
-    if (typeof amount !== 'number' ||  amount <= 0) {
+    if (typeof amount !== 'number' || amount <= 0) {
       throw new Error('Invalid amount');
     }
     this.amount = amount;
@@ -45,7 +45,9 @@ class BSocialTip {
       ops.push('' + this.amount);
     }
 
-    return ops.map(op => Buffer.from(op).toString(format));
+    return ops.map((op) => {
+      return Buffer.from(op).toString(format);
+    });
   }
 }
 

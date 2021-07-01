@@ -1,6 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 
-import BSocial, { B_PROTOCOL_ADDRESS, BPP_PROTOCOL_ADDRESS, MAP_PROTOCOL_ADDRESS } from '../src';
+import BSocial from '../src';
+import { B_PROTOCOL_ADDRESS, BPP_PROTOCOL_ADDRESS, MAP_PROTOCOL_ADDRESS } from '../src/constants';
 import BSocialLike from '../src/like';
 
 const appName = 'com.example.testapp';

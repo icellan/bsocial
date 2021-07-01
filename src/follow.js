@@ -1,6 +1,6 @@
 import {
   MAP_PROTOCOL_ADDRESS,
-} from './index';
+} from './constants';
 
 class BSocialFollow {
   constructor(appName) {
@@ -32,7 +32,9 @@ class BSocialFollow {
     ops.push('idKey');
     ops.push(this.idKey);
 
-    return ops.map(op => Buffer.from(op).toString(format));
+    return ops.map((op) => {
+      return Buffer.from(op).toString(format);
+    });
   }
 }
 

@@ -4,12 +4,6 @@ import BSocialLike from './like';
 import BSocialTip from './tip';
 import BSocialFollow from './follow';
 
-export const B_PROTOCOL_ADDRESS = '19HxigV4QyBv3tHpQVcUEQyq1pzZVdoAut';
-export const MAP_PROTOCOL_ADDRESS = '1PuQa7K62MiKCtssSLKy1kh56WWU7MtUR5';
-export const AIP_PROTOCOL_ADDRESS = '15PciHG22SNLQJXMoSUaWVi7WSqc7hCfva';
-export const BAP_PROTOCOL_ADDRESS = '1BAPSuaPnfGnSBM3GLV9yhxUdYe4vGbdMT';
-export const BPP_PROTOCOL_ADDRESS = 'BPP';
-
 class BSocial {
   constructor(appName) {
     if (!appName) throw new Error('App name needs to be set');

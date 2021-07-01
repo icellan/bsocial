@@ -1,13 +1,13 @@
 import {
   MAP_PROTOCOL_ADDRESS,
-} from './index';
+} from './constants';
 
 class BSocialLike {
   constructor(appName) {
     if (!appName) throw new Error('App name needs to be set');
     this.appName = appName;
-    this.txId = ''
-    this.emoji = ''
+    this.txId = '';
+    this.emoji = '';
   }
 
   setTxId(txId) {
@@ -41,7 +41,9 @@ class BSocialLike {
       ops.push(this.emoji);
     }
 
-    return ops.map(op => Buffer.from(op).toString(format));
+    return ops.map((op) => {
+      return Buffer.from(op).toString(format);
+    });
   }
 }
 
